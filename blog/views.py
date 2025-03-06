@@ -7,4 +7,6 @@ from .models import Post
 #def blog(request):
     #return HttpResponse("Hello, blog!")
 class PostList(generic.ListView):
-    model = Post
+    #model = Post
+    queryset = Post.objects.all()
+    template_name = "post_list.html"
