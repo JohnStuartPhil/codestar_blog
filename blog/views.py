@@ -30,6 +30,8 @@ def post_detail(request, slug):
 
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
+    comments = post.comments.all().order_by("-created_on")
+    comment_count = post.comments.filter(approved=True).count()
     
     
 
@@ -38,6 +40,8 @@ def post_detail(request, slug):
         request,
         "blog/post_detail.html",
         {
-            "post": post
+            "post": post,
+            "comments": comments,
+            "comment_count": comment_count,
         },
     )
