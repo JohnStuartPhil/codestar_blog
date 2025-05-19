@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User # Import models to connect
 
 STATUS = ((0, "Draft"), (1, "Published"))
-TEST = (('A', 'A'), ('B', 'B'))
 
 
 # Create your models here.
@@ -28,7 +27,6 @@ class Post(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments")
-    status = models.CharField(choices=TEST, default='A')
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="commenter")
     body = models.TextField()
