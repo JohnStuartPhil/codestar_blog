@@ -27,7 +27,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-td3cun==mks339ta!r2u%gw=$1^u=8$5#b5#3bah8r822gw&-f'
+# SECRET_KEY = 'django-insecure-td3cun==mks339ta!r2u%gw=$1^u=8$5#b5#3bah8r822gw&-f'
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -100,16 +100,16 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
- #   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-# }
+  #  'default': {
+   #     'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': BASE_DIR / 'db.sqlite3',
+    #}
+#}
+
+DATABASES = {
+   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
 
 # if 'test' in sys.argv:
     # DATABASES = ['default']['ENGINE'] = 'django.db.backends.sqlite3'
